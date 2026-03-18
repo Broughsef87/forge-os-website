@@ -62,7 +62,7 @@ export default function Home() {
             style={{ 
               transform: `scale(${0.8 + scrollY * 0.0005}) translateY(${scrollY * -0.1}px)`,
               opacity: Math.min(0.6, scrollY / 400),
-              filter: `brightness(${0.5 + scrollY / 200}) saturate(${1 + scrollY / 300})`
+              filter: `brightness(${0.5 + scrollY / 200}) saturate(${1 + scrollY / 300}) contrast(${1 + scrollY / 500})`
             }}
           >
             <Image 
@@ -73,7 +73,10 @@ export default function Home() {
               className="object-contain"
             />
             {/* Inner Glow Pulse */}
-            <div className="absolute inset-0 bg-orange-600/20 blur-[100px] animate-pulse rounded-full" />
+            <div 
+              className="absolute inset-0 bg-orange-600/30 blur-[120px] rounded-full transition-opacity duration-700" 
+              style={{ opacity: Math.min(0.8, scrollY / 300) }}
+            />
           </div>
         </div>
 
