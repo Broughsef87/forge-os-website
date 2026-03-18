@@ -3,10 +3,19 @@
 import ForgeLogo from '../components/ForgeLogo';
 import CyberGrid from '../components/CyberGrid';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="bg-black text-white selection:bg-orange-500/30 font-sans">
+    <div className="bg-black text-white selection:bg-orange-500/30 font-sans overflow-x-hidden">
       <CyberGrid />
       
       {/* Navigation */}
@@ -16,110 +25,127 @@ export default function Home() {
           <span className="font-bold uppercase tracking-widest text-sm">Forge OS</span>
         </div>
         <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-500">
-          <a href="#workflows" className="hover:text-orange-500 transition-colors">Workflows</a>
-          <a href="#about" className="hover:text-orange-500 transition-colors">The Lab</a>
-          <a href="#contact" className="hover:text-orange-500 transition-colors">Initiate</a>
+          <a href="#app" className="hover:text-orange-500 transition-colors">The App</a>
+          <a href="#content" className="hover:text-orange-500 transition-colors">YouTube</a>
+          <a href="#community" className="hover:text-orange-500 transition-colors">Skool</a>
         </div>
         <button className="bg-white text-black text-[10px] font-black px-4 py-2 uppercase tracking-tighter hover:bg-orange-500 hover:text-white transition-all">
-          Client Login
+          Join the Forge
         </button>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden px-4">
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 z-0 opacity-40 pointer-events-none overflow-hidden">
-          <Image 
-            src="/hero-anvil.png" 
-            alt="Hero Anvil" 
-            fill 
-            className="object-cover scale-110 blur-[2px] opacity-10"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
+      <section className="relative min-h-[150vh] flex flex-col items-center pt-40 overflow-hidden px-4">
+        {/* Parallax Scrolling Anvil Animation */}
+        <div className="sticky top-0 h-screen w-full z-0 flex items-center justify-center pointer-events-none">
+          {/* Base Anvil - Fades out as we scroll */}
+          <div 
+            className="absolute transition-all duration-75"
+            style={{ 
+              transform: `scale(${1 + scrollY * 0.001}) translateY(${scrollY * -0.2}px)`,
+              opacity: Math.max(0, 1 - scrollY / 600)
+            }}
+          >
+            <Image 
+              src="/hero-anvil.png" 
+              alt="Forge Anvil" 
+              width={800}
+              height={800}
+              className="object-contain opacity-40 blur-[2px]"
+              priority
+            />
+          </div>
+
+          {/* Burning Anvil - Emerges and "heats up" on scroll */}
+          <div 
+            className="absolute transition-all duration-75"
+            style={{ 
+              transform: `scale(${0.8 + scrollY * 0.0005}) translateY(${scrollY * -0.1}px)`,
+              opacity: Math.min(0.6, scrollY / 400),
+              filter: `brightness(${0.5 + scrollY / 200}) saturate(${1 + scrollY / 300})`
+            }}
+          >
+            <Image 
+              src="/burning-hero-anvil.png" 
+              alt="Burning Forge" 
+              width={1000}
+              height={1000}
+              className="object-contain"
+            />
+            {/* Inner Glow Pulse */}
+            <div className="absolute inset-0 bg-orange-600/20 blur-[100px] animate-pulse rounded-full" />
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 text-center max-w-4xl">
+        {/* Hero Content - Scrolls Over the Anvil */}
+        <div className="relative z-10 text-center max-w-5xl mt-20">
           <div className="inline-block mb-12">
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-orange-500 font-bold block mt-4 animate-pulse">System Operational</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-orange-500 font-bold block mt-4 animate-pulse">Forging the Future</span>
           </div>
           
-          <h1 className="text-6xl md:text-[12rem] font-black uppercase tracking-tighter mb-6 text-white leading-[0.8]">
+          <h1 className="text-7xl md:text-[14rem] font-black uppercase tracking-tighter mb-6 text-white leading-[0.75]">
             Forge <span className="text-orange-600 italic">OS</span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-zinc-400 max-w-2xl mx-auto font-medium leading-relaxed mb-12">
-            The high-performance engine for <span className="text-white">B2B AI Automation</span>. 
-            We build the workflows that buy back your time and scale your legacy.
+          <p className="text-xl md:text-3xl text-zinc-300 max-w-3xl mx-auto font-bold leading-tight mb-12 uppercase tracking-tight">
+            The ecosystem for the <span className="text-orange-500">Modern Creator-Dad</span>.<br />
+            YouTube. SaaS. Community. <span className="text-white">Absolute Results.</span>
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-500 text-white font-black py-5 px-12 rounded-none uppercase tracking-[0.2em] transition-all shadow-[0_0_30px_rgba(234,88,12,0.3)]">
-              Build My Agent
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <button className="w-full sm:w-auto bg-orange-600 hover:bg-orange-500 text-white font-black py-6 px-14 rounded-none uppercase tracking-[0.3em] transition-all shadow-[0_0_50px_rgba(234,88,12,0.4)] text-lg">
+              Get the App
             </button>
-            <button className="w-full sm:w-auto border border-white/10 hover:border-white/40 hover:bg-white/5 text-white font-black py-5 px-12 rounded-none uppercase tracking-[0.2em] transition-all">
-              The Architecture
+            <button className="w-full sm:w-auto border border-white/20 hover:border-white/60 hover:bg-white/5 text-white font-black py-6 px-14 rounded-none uppercase tracking-[0.3em] transition-all text-lg">
+              The Protocol
             </button>
-          </div>
-        </div>
-
-        {/* Bottom Status Bar */}
-        <div className="absolute bottom-8 left-0 right-0 w-full px-8 flex justify-between items-end">
-          <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest leading-loose text-left">
-            [ Latency: 24ms ]<br />
-            [ Status: Autonomous ]<br />
-            [ Nodes: Online ]
-          </div>
-          <div className="flex flex-col items-end">
-             <div className="w-32 h-1 bg-zinc-900 overflow-hidden relative mb-2">
-                <div className="absolute inset-0 bg-orange-600 w-1/3 animate-ping" />
-             </div>
-             <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Compiling Assets...</span>
           </div>
         </div>
       </section>
 
-      {/* Detail Section */}
-      <section className="relative py-32 px-6 border-t border-white/5 bg-zinc-950/50">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-           <div className="relative group">
-              <div className="absolute -inset-4 bg-orange-600/20 blur-2xl group-hover:bg-orange-600/40 transition-all duration-700 opacity-50" />
-              <div className="relative border border-white/10 aspect-video overflow-hidden">
-                <Image 
-                  src="/burning-hero-anvil.png" 
-                  alt="Forge In Action" 
-                  fill 
-                  className="object-cover grayscale hover:grayscale-0 transition-all duration-1000"
-                />
-              </div>
-           </div>
-           
-           <div>
-              <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-none">
-                Not Just Tools.<br />
-                <span className="text-orange-600">The Whole Engine.</span>
-              </h2>
-              <p className="text-zinc-400 text-lg leading-relaxed mb-10">
-                Forge OS doesn&apos;t just write code. We deploy end-to-end agentic workflows that integrate into your stack, handle the heavy lifting, and report back. 
-              </p>
-              <ul className="space-y-6">
-                {[
-                  "Multi-Agent Orchestration",
-                  "Automated Sales Pipelines",
-                  "Content Generation At Scale",
-                  "Self-Correcting Data Pipelines"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-4 group">
-                    <div className="w-2 h-2 bg-orange-600 rotate-45 group-hover:scale-150 transition-transform" />
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-           </div>
+      {/* The Ecosystem Section */}
+      <section className="relative py-40 px-6 bg-zinc-950 border-t border-white/5 z-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* YouTube */}
+            <div className="group border border-white/5 p-12 hover:border-orange-500/50 transition-all bg-black/40">
+              <span className="text-orange-500 font-mono text-sm mb-6 block tracking-widest">[ 01 ]</span>
+              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">YouTube</h3>
+              <p className="text-zinc-500 leading-relaxed mb-8">Building in public. Documenting the journey from zero to $1M/year while being a present dad.</p>
+              <div className="h-1 w-0 group-hover:w-full bg-orange-500 transition-all duration-500" />
+            </div>
+
+            {/* Dad Strength App */}
+            <div className="group border border-white/5 p-12 hover:border-orange-500/50 transition-all bg-black/40">
+              <span className="text-orange-500 font-mono text-sm mb-6 block tracking-widest">[ 02 ]</span>
+              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">The App</h3>
+              <p className="text-zinc-500 leading-relaxed mb-8">Next-gen training for the man with no time. Functional strength meets autonomous productivity.</p>
+              <div className="h-1 w-0 group-hover:w-full bg-orange-500 transition-all duration-500" />
+            </div>
+
+            {/* Community */}
+            <div className="group border border-white/5 p-12 hover:border-orange-500/50 transition-all bg-black/40">
+              <span className="text-orange-500 font-mono text-sm mb-6 block tracking-widest">[ 03 ]</span>
+              <h3 className="text-3xl font-black uppercase tracking-tighter mb-4">Skool</h3>
+              <p className="text-zinc-500 leading-relaxed mb-8">The inner circle. Systems, scripts, and protocols for dads who refuse to choose between family and success.</p>
+              <div className="h-1 w-0 group-hover:w-full bg-orange-500 transition-all duration-500" />
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Footer / Status */}
+      <footer className="py-12 px-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 bg-black">
+        <div className="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.3em]">
+          &copy; 2026 Forge OS // Producing Value 24/7
+        </div>
+        <div className="flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-500">
+           <span className="text-orange-500">Colorado</span>
+           <span>America/Denver</span>
+           <span>Lat: 39.7392</span>
+        </div>
+      </footer>
     </div>
   );
 }
