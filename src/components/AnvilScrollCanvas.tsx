@@ -19,10 +19,10 @@ export default function AnvilScrollCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Size canvas to window
+    // Size canvas — capped at 900×650 so it doesn't overwhelm the viewport
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = Math.min(window.innerWidth, 900);
+      canvas.height = Math.min(Math.round(window.innerHeight * 0.65), 650);
       drawFrame(currentFrameRef.current);
     };
 
@@ -88,12 +88,14 @@ export default function AnvilScrollCanvas() {
   }, []);
 
   return (
-    // Tall container drives the scroll — canvas stays sticky
-    <div ref={containerRef} style={{ height: `${TOTAL_FRAMES * 20}px` }} className="relative">
-      <canvas
-        ref={canvasRef}
-        className="sticky top-0 w-full h-screen block"
-      />
+    // Tall container drives the scroll — canvas stays sticky and centered
+    <div ref={containerRef} style={{ height: `${TOTAL_FRAMES * 20}px` }} className="relative bg-black">
+      <div className="sticky top-0 flex items-center justify-center py-8" style={{ height: '100vh' }}>
+        <canvas
+          ref={canvasRef}
+          className="block"
+        />
+      </div>
     </div>
   );
 }

@@ -25,11 +25,8 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Apple-style Canvas Scroll Animation */}
-      <AnvilScrollCanvas />
-
       {/* Hero Text Section */}
-      <section className="relative py-32 px-4 flex flex-col items-center text-center bg-black z-10">
+      <section className="relative pt-40 pb-16 px-4 flex flex-col items-center text-center bg-black z-10">
         <div className="inline-block mb-12">
           <div className="h-px w-24 bg-gradient-to-r from-transparent via-orange-500 to-transparent mx-auto" />
           <span className="text-[10px] uppercase tracking-[0.4em] text-orange-500 font-bold block mt-4 animate-pulse">Forging the Future</span>
@@ -53,6 +50,9 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      {/* Apple-style Canvas Scroll Animation */}
+      <AnvilScrollCanvas />
 
       {/* The Ecosystem Section */}
       <section className="relative py-40 px-6 bg-zinc-950 border-t border-white/5 z-20">
