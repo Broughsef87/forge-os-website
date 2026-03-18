@@ -2,8 +2,6 @@
 
 import ForgeLogo from '../components/ForgeLogo';
 import CyberGrid from '../components/CyberGrid';
-import AnvilScrollCanvas from '../components/AnvilScrollCanvas';
-
 export default function Home() {
   return (
     <div className="bg-black text-white selection:bg-orange-500/30 font-sans overflow-x-hidden">
@@ -50,9 +48,6 @@ export default function Home() {
           </button>
         </div>
       </section>
-
-      {/* Apple-style Canvas Scroll Animation */}
-      <AnvilScrollCanvas />
 
       {/* The Ecosystem Section */}
       <section className="relative py-40 px-6 bg-zinc-950 border-t border-white/5 z-20">
