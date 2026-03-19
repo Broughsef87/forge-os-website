@@ -1,93 +1,482 @@
 "use client";
 
-import ForgeLogo from '../components/ForgeLogo';
+import { useEffect } from "react";
+import Image from "next/image";
+import ForgeLogo from "../components/ForgeLogo";
+
+// ── Arrow icon shared across pillar CTAs ────────────────────────────────────
+function Arrow() {
+  return (
+    <svg
+      className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      />
+    </svg>
+  );
+}
 
 export default function Home() {
+  // ── Scroll reveal via IntersectionObserver ─────────────────────────────────
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => e.isIntersecting && e.target.classList.add("in-view")),
+      { threshold: 0.08, rootMargin: "0px 0px -48px 0px" }
+    );
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-[#F9F9F9] text-zinc-900 selection:bg-zinc-200 font-sans min-h-screen">
-      
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#F9F9F9]/80 backdrop-blur-xl border-b border-zinc-200 px-8 py-5 flex justify-between items-center transition-all">
+    <div className="bg-[#F8F8F6] text-zinc-900 font-sans min-h-screen overflow-x-hidden">
+
+      {/* ════════════════════════════════════════════════════════════════════
+          NAV
+      ════════════════════════════════════════════════════════════════════ */}
+      <nav className="fixed top-0 w-full z-50 bg-[#F8F8F6]/80 backdrop-blur-xl border-b border-zinc-200/80 px-8 py-5 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <ForgeLogo className="text-zinc-900 w-6 h-6" />
-          <span className="font-medium tracking-wide text-sm text-zinc-900">FORGE OS</span>
+          <span className="font-medium tracking-widest text-[11px] text-zinc-900">
+            FORGE OS
+          </span>
         </div>
-        <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-500">
-          <a href="#youtube" className="hover:text-zinc-900 transition-colors">YouTube</a>
-          <a href="#skool" className="hover:text-zinc-900 transition-colors">Community</a>
-          <a href="#app" className="hover:text-zinc-900 transition-colors">Dad Strength App</a>
+        <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-400">
+          <a href="#youtube" className="hover:text-zinc-900 transition-colors duration-200">
+            YouTube
+          </a>
+          <a href="#skool" className="hover:text-zinc-900 transition-colors duration-200">
+            Community
+          </a>
+          <a href="#app" className="hover:text-zinc-900 transition-colors duration-200">
+            Dad Strength
+          </a>
         </div>
-        <a href="#join" className="px-5 py-2 bg-zinc-900 text-white text-xs font-medium rounded-full hover:bg-zinc-800 transition-colors">
+        <a
+          href="#join"
+          className="px-5 py-2.5 bg-zinc-900 text-white text-xs font-medium rounded-full hover:bg-zinc-700 transition-colors duration-200"
+        >
           Join the Skool
         </a>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-48 pb-32 px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
-        <h1 className="text-5xl md:text-7xl font-light tracking-tight text-zinc-900 mb-8 max-w-4xl leading-tight">
-          Documenting the <br className="hidden md:block"/>
-          <span className="font-medium text-zinc-400">autonomous build.</span>
+      {/* ════════════════════════════════════════════════════════════════════
+          HERO
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="pt-48 pb-28 px-8 max-w-5xl mx-auto flex flex-col items-center text-center">
+
+        {/* Eyebrow */}
+        <div className="reveal flex items-center gap-4 mb-14 text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
+          <span className="inline-block w-10 h-px bg-zinc-300" />
+          Est. 2024 · Colorado
+          <span className="inline-block w-10 h-px bg-zinc-300" />
+        </div>
+
+        {/* Headline — two lines with weight / color contrast */}
+        <h1
+          className="reveal font-light tracking-tight leading-[0.9] text-zinc-900"
+          style={{ fontSize: "clamp(3.25rem, 8.5vw, 8rem)", transitionDelay: "60ms" }}
+        >
+          Documenting the
         </h1>
-        <p className="text-lg md:text-xl text-zinc-500 font-light max-w-2xl mb-12">
-          We are the media layer of Forge. YouTube, the Skool community, and the Dad Strength App. Building a $1M/year autonomous business in public.
+        <h1
+          className="reveal font-light tracking-tight leading-[0.9] text-zinc-400 mb-14"
+          style={{ fontSize: "clamp(3.25rem, 8.5vw, 8rem)", transitionDelay: "130ms" }}
+        >
+          autonomous build.
+        </h1>
+
+        {/* Sub-copy */}
+        <p
+          className="reveal text-base md:text-lg text-zinc-500 font-light max-w-lg mb-12 leading-relaxed"
+          style={{ transitionDelay: "200ms" }}
+        >
+          The media layer of Forge. YouTube, the Skool community, and the Dad
+          Strength App — building a $1M/year autonomous business, publicly.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a href="https://youtube.com" className="px-8 py-4 bg-zinc-900 text-white rounded-full text-sm font-medium hover:bg-zinc-800 transition-all shadow-lg shadow-zinc-900/20">
+
+        {/* CTAs */}
+        <div
+          className="reveal flex flex-col sm:flex-row gap-3 mb-24"
+          style={{ transitionDelay: "270ms" }}
+        >
+          <a
+            href="https://youtube.com"
+            className="px-9 py-4 bg-zinc-900 text-white rounded-full text-sm font-medium hover:bg-zinc-700 transition-colors duration-200"
+          >
             Watch the Journey
           </a>
-          <a href="#app" className="px-8 py-4 bg-white text-zinc-900 rounded-full text-sm font-medium border border-zinc-200 hover:bg-zinc-50 transition-all">
+          <a
+            href="#app"
+            className="px-9 py-4 bg-white text-zinc-600 rounded-full text-sm font-medium border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200"
+          >
             Get Dad Strength
           </a>
         </div>
+
+        {/* Stat strip */}
+        <div
+          className="reveal w-full max-w-sm"
+          style={{ transitionDelay: "340ms" }}
+        >
+          <div className="h-px w-full bg-zinc-200 mb-8" />
+          <div className="grid grid-cols-3">
+            {[
+              { value: "121+", label: "Videos" },
+              { value: "400+", label: "Members" },
+              { value: "$1M",  label: "Target"  },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className={`text-center ${i < 2 ? "border-r border-zinc-200" : ""}`}
+              >
+                <div className="text-2xl font-light text-zinc-900 tracking-tight mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-[11px] text-zinc-400 font-medium tracking-widest uppercase">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </section>
 
-      {/* Feature Grid - Industrial / Clean */}
-      <section className="py-24 px-8 bg-white border-y border-zinc-100">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          
-          <div className="flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center mb-4">
-              <svg className="w-5 h-5 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-medium text-zinc-900">YouTube Context</h3>
-            <p className="text-zinc-500 font-light leading-relaxed">
-              Long-form transparency. We share the scripts, the code, the failures, and the financials of building a self-sustaining enterprise.
-            </p>
+      {/* ════════════════════════════════════════════════════════════════════
+          MANIFESTO
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="bg-zinc-950 py-32 px-8">
+        <div className="max-w-4xl mx-auto">
+
+          <div className="reveal flex items-center gap-4 mb-10">
+            <div className="w-6 h-px bg-orange-500" />
+            <span className="text-[11px] tracking-[0.2em] text-zinc-500 font-medium uppercase">
+              The Foundation
+            </span>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center mb-4">
-              <svg className="w-5 h-5 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
+          <blockquote
+            className="reveal font-light text-white leading-[1.08] tracking-tight mb-16"
+            style={{
+              fontSize: "clamp(2rem, 5vw, 4.5rem)",
+              transitionDelay: "100ms",
+            }}
+          >
+            We build in public.<br />
+            Not for the algorithm —<br />
+            <span className="text-zinc-500">for the record.</span>
+          </blockquote>
+
+          <div
+            className="reveal h-px w-full bg-zinc-800 mb-10"
+            style={{ transitionDelay: "200ms" }}
+          />
+          <p
+            className="reveal text-[11px] text-zinc-600 font-medium tracking-[0.2em] uppercase"
+            style={{ transitionDelay: "260ms" }}
+          >
+            Forge OS · Colorado · Est. 2024
+          </p>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          PILLAR 01 — YOUTUBE
+      ════════════════════════════════════════════════════════════════════ */}
+      <section id="youtube" className="py-28 px-8 bg-white border-b border-zinc-100">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          {/* Text */}
+          <div>
+            <div
+              className="reveal select-none font-light text-zinc-100 leading-none -mb-6 pointer-events-none"
+              style={{ fontSize: "clamp(6rem, 16vw, 13rem)", transitionDelay: "0ms" }}
+            >
+              01
             </div>
-            <h3 className="text-xl font-medium text-zinc-900">The Skool Community</h3>
-            <p className="text-zinc-500 font-light leading-relaxed">
-              A private collective of builders, founders, and fathers sharing tools, feedback, and the exact templates we use to run Forge.
+            <div
+              className="reveal flex items-center gap-3 mb-5"
+              style={{ transitionDelay: "60ms" }}
+            >
+              <div className="w-5 h-px bg-orange-500" />
+              <span className="text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
+                YouTube
+              </span>
+            </div>
+            <h2
+              className="reveal text-4xl md:text-5xl font-light text-zinc-900 tracking-tight mb-6 leading-[1.05]"
+              style={{ transitionDelay: "120ms" }}
+            >
+              The transparent<br />build log.
+            </h2>
+            <p
+              className="reveal text-zinc-500 font-light leading-relaxed mb-8 max-w-sm text-[15px]"
+              style={{ transitionDelay: "180ms" }}
+            >
+              Scripts, code, failures, and financials — every week. Long-form
+              transparency for builders who want to see what the build actually
+              costs.
             </p>
+            <a
+              href="https://youtube.com"
+              className="reveal inline-flex items-center gap-2 text-sm font-medium text-zinc-900 group"
+              style={{ transitionDelay: "240ms" }}
+            >
+              Watch the channel
+              <Arrow />
+            </a>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-zinc-100 flex items-center justify-center mb-4">
-              <svg className="w-5 h-5 text-zinc-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-medium text-zinc-900">Dad Strength App</h3>
-            <p className="text-zinc-500 font-light leading-relaxed">
-              HQ, Mind, Body, Spirit. Built for functional strength and being a hero to your kids. No alpha-bro aesthetics, just capability.
-            </p>
+          {/* Image */}
+          <div
+            className="reveal relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100"
+            style={{ transitionDelay: "80ms" }}
+          >
+            <Image
+              src="/burning-hero-anvil.png"
+              alt="The Forge — forging in public"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 text-center text-sm font-light text-zinc-400">
-        <p>&copy; {new Date().getFullYear()} Forge OS. All rights reserved.</p>
+      {/* ════════════════════════════════════════════════════════════════════
+          PILLAR 02 — SKOOL
+      ════════════════════════════════════════════════════════════════════ */}
+      <section id="skool" className="py-28 px-8 bg-[#F8F8F6] border-b border-zinc-100">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          {/* Visual — left on desktop */}
+          <div
+            className="reveal order-2 md:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950"
+            style={{ transitionDelay: "80ms" }}
+          >
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+              <span className="text-[6rem] font-light text-zinc-800 leading-none">S</span>
+              <div className="w-6 h-px bg-orange-500" />
+              <span className="text-[11px] tracking-[0.25em] text-zinc-600 uppercase font-medium">
+                The Skool
+              </span>
+            </div>
+          </div>
+
+          {/* Text — right on desktop */}
+          <div className="order-1 md:order-2">
+            <div
+              className="reveal select-none font-light text-zinc-200 leading-none -mb-6 pointer-events-none"
+              style={{ fontSize: "clamp(6rem, 16vw, 13rem)", transitionDelay: "0ms" }}
+            >
+              02
+            </div>
+            <div
+              className="reveal flex items-center gap-3 mb-5"
+              style={{ transitionDelay: "60ms" }}
+            >
+              <div className="w-5 h-px bg-orange-500" />
+              <span className="text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
+                Community
+              </span>
+            </div>
+            <h2
+              className="reveal text-4xl md:text-5xl font-light text-zinc-900 tracking-tight mb-6 leading-[1.05]"
+              style={{ transitionDelay: "120ms" }}
+            >
+              The Skool<br />community.
+            </h2>
+            <p
+              className="reveal text-zinc-500 font-light leading-relaxed mb-8 max-w-sm text-[15px]"
+              style={{ transitionDelay: "180ms" }}
+            >
+              A private collective of builders, founders, and fathers sharing
+              the exact tools and templates we use to run Forge. No posturing —
+              just the real work.
+            </p>
+            <a
+              href="#join"
+              className="reveal inline-flex items-center gap-2 text-sm font-medium text-zinc-900 group"
+              style={{ transitionDelay: "240ms" }}
+            >
+              Join the community
+              <Arrow />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          PILLAR 03 — DAD STRENGTH APP
+      ════════════════════════════════════════════════════════════════════ */}
+      <section id="app" className="py-28 px-8 bg-white border-b border-zinc-100">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+          {/* Text */}
+          <div>
+            <div
+              className="reveal select-none font-light text-zinc-100 leading-none -mb-6 pointer-events-none"
+              style={{ fontSize: "clamp(6rem, 16vw, 13rem)", transitionDelay: "0ms" }}
+            >
+              03
+            </div>
+            <div
+              className="reveal flex items-center gap-3 mb-5"
+              style={{ transitionDelay: "60ms" }}
+            >
+              <div className="w-5 h-px bg-orange-500" />
+              <span className="text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
+                Dad Strength App
+              </span>
+            </div>
+            <h2
+              className="reveal text-4xl md:text-5xl font-light text-zinc-900 tracking-tight mb-6 leading-[1.05]"
+              style={{ transitionDelay: "120ms" }}
+            >
+              Built for the man<br />with no time.
+            </h2>
+            <p
+              className="reveal text-zinc-500 font-light leading-relaxed mb-8 max-w-sm text-[15px]"
+              style={{ transitionDelay: "180ms" }}
+            >
+              HQ, Mind, Body, Spirit. Functional strength without the
+              alpha-bro posturing. Built to make you capable — at the gym and
+              at home.
+            </p>
+            <a
+              href="#"
+              className="reveal inline-flex items-center gap-2 text-sm font-medium text-zinc-900 group"
+              style={{ transitionDelay: "240ms" }}
+            >
+              Get Dad Strength
+              <Arrow />
+            </a>
+          </div>
+
+          {/* Visual */}
+          <div
+            className="reveal relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950"
+            style={{ transitionDelay: "80ms" }}
+          >
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+              <span className="text-6xl font-light text-zinc-700 leading-none">Dad</span>
+              <span className="text-6xl font-light text-white leading-none">Strength</span>
+              <div className="mt-5 w-8 h-px bg-orange-500" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          STATS STRIP
+      ════════════════════════════════════════════════════════════════════ */}
+      <section className="bg-zinc-950 py-20 px-8">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4">
+          {[
+            { value: "121",  label: "Episodes"    },
+            { value: "400+", label: "Members"     },
+            { value: "$1M",  label: "The Target"  },
+            { value: "3",    label: "Products"    },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className={`reveal text-center py-10 px-4 ${
+                i < 3 ? "border-r border-zinc-800" : ""
+              }`}
+              style={{ transitionDelay: `${i * 80}ms` }}
+            >
+              <div className="text-4xl md:text-5xl font-light text-white tracking-tight mb-2">
+                {stat.value}
+              </div>
+              <div className="text-[11px] text-zinc-600 font-medium tracking-widest uppercase">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          CTA
+      ════════════════════════════════════════════════════════════════════ */}
+      <section id="join" className="py-40 px-8 bg-[#F8F8F6]">
+        <div className="max-w-2xl mx-auto text-center">
+
+          <div className="reveal flex items-center justify-center gap-4 mb-12 text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
+            <span className="inline-block w-8 h-px bg-zinc-300" />
+            Join us
+            <span className="inline-block w-8 h-px bg-zinc-300" />
+          </div>
+
+          <h2
+            className="reveal font-light text-zinc-900 tracking-tight mb-8 leading-[1.05]"
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 5rem)",
+              transitionDelay: "80ms",
+            }}
+          >
+            Build alongside us.
+          </h2>
+
+          <p
+            className="reveal text-zinc-500 font-light text-lg mb-14 max-w-md mx-auto leading-relaxed"
+            style={{ transitionDelay: "160ms" }}
+          >
+            Access the community, the app, and the full transparency of the
+            build. Everything we know — shared.
+          </p>
+
+          <div
+            className="reveal flex flex-col sm:flex-row gap-3 justify-center"
+            style={{ transitionDelay: "240ms" }}
+          >
+            <a
+              href="#"
+              className="px-10 py-4 bg-zinc-900 text-white rounded-full text-sm font-medium hover:bg-zinc-700 transition-colors duration-200"
+            >
+              Join the Skool
+            </a>
+            <a
+              href="https://youtube.com"
+              className="px-10 py-4 bg-white text-zinc-600 rounded-full text-sm font-medium border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200"
+            >
+              Watch first
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════════════
+          FOOTER
+      ════════════════════════════════════════════════════════════════════ */}
+      <footer className="py-10 px-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex items-center gap-3">
+          <ForgeLogo className="text-zinc-400 w-5 h-5" />
+          <span className="text-[11px] text-zinc-400 font-medium tracking-widest">
+            FORGE OS
+          </span>
+        </div>
+        <p className="text-[11px] text-zinc-400 font-light">
+          © 2026 Forge OS. All rights reserved.
+        </p>
+        <p className="text-[11px] text-zinc-400 font-medium tracking-widest">
+          Colorado · Est. 2024
+        </p>
       </footer>
+
     </div>
   );
 }
