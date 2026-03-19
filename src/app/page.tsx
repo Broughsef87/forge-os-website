@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import { useEffect } from "react";
 import Image from "next/image";
 import ForgeLogo from "../components/ForgeLogo";
 
-// ── Arrow icon shared across pillar CTAs ────────────────────────────────────
+// â”€â”€ Arrow icon shared across pillar CTAs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function Arrow() {
   return (
     <svg
@@ -24,7 +24,7 @@ function Arrow() {
 }
 
 export default function Home() {
-  // ── Scroll reveal via IntersectionObserver ─────────────────────────────────
+  // â”€â”€ Scroll reveal via IntersectionObserver â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -38,9 +38,9 @@ export default function Home() {
   return (
     <div className="bg-[#F8F8F6] text-zinc-900 font-sans min-h-screen overflow-x-hidden">
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           NAV
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <nav className="fixed top-0 w-full z-50 bg-[#F8F8F6]/80 backdrop-blur-xl border-b border-zinc-200/80 px-8 py-5 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <ForgeLogo className="text-zinc-900 w-6 h-6" />
@@ -49,37 +49,37 @@ export default function Home() {
           </span>
         </div>
         <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-400">
-          <a href="#youtube" className="hover:text-zinc-900 transition-colors duration-200">
+          <a href="https://www.youtube.com/@forgeOS108" className="hover:text-zinc-900 transition-colors duration-200">
             YouTube
           </a>
-          <a href="#skool" className="hover:text-zinc-900 transition-colors duration-200">
+          <a href="https://www.skool.com/forge-os-9794" className="hover:text-zinc-900 transition-colors duration-200">
             Community
           </a>
-          <a href="#app" className="hover:text-zinc-900 transition-colors duration-200">
+          <a href="https://dad-strength-app-rnz1.vercel.app/dashboard" className="hover:text-zinc-900 transition-colors duration-200">
             Dad Strength
           </a>
         </div>
         <a
-          href="#join"
+          href="https://www.skool.com/forge-os-9794"
           className="px-5 py-2.5 bg-zinc-900 text-white text-xs font-medium rounded-full hover:bg-zinc-700 transition-colors duration-200"
         >
           Join the Skool
         </a>
       </nav>
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           HERO
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="pt-48 pb-28 px-8 max-w-5xl mx-auto flex flex-col items-center text-center">
 
         {/* Eyebrow */}
         <div className="reveal flex items-center gap-4 mb-14 text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
           <span className="inline-block w-10 h-px bg-zinc-300" />
-          Est. 2024 · Colorado
+          Est. 2024 Â· Colorado
           <span className="inline-block w-10 h-px bg-zinc-300" />
         </div>
 
-        {/* Headline — two lines with weight / color contrast */}
+        {/* Headline â€” two lines with weight / color contrast */}
         <h1
           className="reveal font-light tracking-tight leading-[0.9] text-zinc-900"
           style={{ fontSize: "clamp(3.25rem, 8.5vw, 8rem)", transitionDelay: "60ms" }}
@@ -99,7 +99,7 @@ export default function Home() {
           style={{ transitionDelay: "200ms" }}
         >
           The media layer of Forge. YouTube, the Skool community, and the Dad
-          Strength App — building a $1M/year autonomous business, publicly.
+          Strength App â€” building a $1M/year autonomous business, publicly.
         </p>
 
         {/* CTAs */}
@@ -108,13 +108,13 @@ export default function Home() {
           style={{ transitionDelay: "270ms" }}
         >
           <a
-            href="https://youtube.com"
+            href="https://www.youtube.com/@forgeOS108"
             className="px-9 py-4 bg-zinc-900 text-white rounded-full text-sm font-medium hover:bg-zinc-700 transition-colors duration-200"
           >
             Watch the Journey
           </a>
           <a
-            href="#app"
+            href="https://dad-strength-app-rnz1.vercel.app/dashboard"
             className="px-9 py-4 bg-white text-zinc-600 rounded-full text-sm font-medium border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200"
           >
             Get Dad Strength
@@ -150,9 +150,9 @@ export default function Home() {
 
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           MANIFESTO
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="bg-zinc-950 py-32 px-8">
         <div className="max-w-4xl mx-auto">
 
@@ -171,7 +171,7 @@ export default function Home() {
             }}
           >
             We build in public.<br />
-            Not for the algorithm —<br />
+            Not for the algorithm â€”<br />
             <span className="text-zinc-500">for the record.</span>
           </blockquote>
 
@@ -183,15 +183,15 @@ export default function Home() {
             className="reveal text-[11px] text-zinc-600 font-medium tracking-[0.2em] uppercase"
             style={{ transitionDelay: "260ms" }}
           >
-            Forge OS · Colorado · Est. 2024
+            Forge OS Â· Colorado Â· Est. 2024
           </p>
 
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          PILLAR 01 — YOUTUBE
-      ════════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          PILLAR 01 â€” YOUTUBE
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="youtube" className="py-28 px-8 bg-white border-b border-zinc-100">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -222,12 +222,12 @@ export default function Home() {
               className="reveal text-zinc-500 font-light leading-relaxed mb-8 max-w-sm text-[15px]"
               style={{ transitionDelay: "180ms" }}
             >
-              Scripts, code, failures, and financials — every week. Long-form
+              Scripts, code, failures, and financials â€” every week. Long-form
               transparency for builders who want to see what the build actually
               costs.
             </p>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@forgeOS108"
               className="reveal inline-flex items-center gap-2 text-sm font-medium text-zinc-900 group"
               style={{ transitionDelay: "240ms" }}
             >
@@ -243,7 +243,7 @@ export default function Home() {
           >
             <Image
               src="/burning-hero-anvil.png"
-              alt="The Forge — forging in public"
+              alt="The Forge â€” forging in public"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -253,13 +253,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          PILLAR 02 — SKOOL
-      ════════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          PILLAR 02 â€” SKOOL
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="skool" className="py-28 px-8 bg-[#F8F8F6] border-b border-zinc-100">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* Visual — left on desktop */}
+          {/* Visual â€” left on desktop */}
           <div
             className="reveal order-2 md:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950"
             style={{ transitionDelay: "80ms" }}
@@ -273,7 +273,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Text — right on desktop */}
+          {/* Text â€” right on desktop */}
           <div className="order-1 md:order-2">
             <div
               className="reveal select-none font-light text-zinc-200 leading-none -mb-6 pointer-events-none"
@@ -301,11 +301,11 @@ export default function Home() {
               style={{ transitionDelay: "180ms" }}
             >
               A private collective of builders, founders, and fathers sharing
-              the exact tools and templates we use to run Forge. No posturing —
+              the exact tools and templates we use to run Forge. No posturing â€”
               just the real work.
             </p>
             <a
-              href="#join"
+              href="https://www.skool.com/forge-os-9794"
               className="reveal inline-flex items-center gap-2 text-sm font-medium text-zinc-900 group"
               style={{ transitionDelay: "240ms" }}
             >
@@ -317,9 +317,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
-          PILLAR 03 — DAD STRENGTH APP
-      ════════════════════════════════════════════════════════════════════ */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          PILLAR 03 â€” DAD STRENGTH APP
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="app" className="py-28 px-8 bg-white border-b border-zinc-100">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -351,7 +351,7 @@ export default function Home() {
               style={{ transitionDelay: "180ms" }}
             >
               HQ, Mind, Body, Spirit. Functional strength without the
-              alpha-bro posturing. Built to make you capable — at the gym and
+              alpha-bro posturing. Built to make you capable â€” at the gym and
               at home.
             </p>
             <a
@@ -379,9 +379,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           STATS STRIP
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section className="bg-zinc-950 py-20 px-8">
         <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4">
           {[
@@ -408,9 +408,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           CTA
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="join" className="py-40 px-8 bg-[#F8F8F6]">
         <div className="max-w-2xl mx-auto text-center">
 
@@ -435,7 +435,7 @@ export default function Home() {
             style={{ transitionDelay: "160ms" }}
           >
             Access the community, the app, and the full transparency of the
-            build. Everything we know — shared.
+            build. Everything we know â€” shared.
           </p>
 
           <div
@@ -449,7 +449,7 @@ export default function Home() {
               Join the Skool
             </a>
             <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@forgeOS108"
               className="px-10 py-4 bg-white text-zinc-600 rounded-full text-sm font-medium border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-200"
             >
               Watch first
@@ -459,9 +459,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════════════
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           FOOTER
-      ════════════════════════════════════════════════════════════════════ */}
+      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <footer className="py-10 px-8 border-t border-zinc-200 flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center gap-3">
           <ForgeLogo className="text-zinc-400 w-5 h-5" />
@@ -470,13 +470,14 @@ export default function Home() {
           </span>
         </div>
         <p className="text-[11px] text-zinc-400 font-light">
-          © 2026 Forge OS. All rights reserved.
+          Â© 2026 Forge OS. All rights reserved.
         </p>
         <p className="text-[11px] text-zinc-400 font-medium tracking-widest">
-          Colorado · Est. 2024
+          Colorado Â· Est. 2024
         </p>
       </footer>
 
     </div>
   );
 }
+
