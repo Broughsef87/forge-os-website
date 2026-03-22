@@ -243,7 +243,7 @@ export default function Home() {
           >
             <Image
               src="/burning-hero-anvil.png"
-              alt=”The Forge - forging in public”
+              alt="The Forge - forging in public"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
