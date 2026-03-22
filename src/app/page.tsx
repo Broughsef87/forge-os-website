@@ -75,7 +75,7 @@ export default function Home() {
         {/* Eyebrow */}
         <div className="reveal flex items-center gap-4 mb-14 text-[11px] tracking-[0.2em] text-zinc-400 font-medium uppercase">
           <span className="inline-block w-10 h-px bg-zinc-300" />
-          Est. 2024 Â· Colorado
+          Est. 2024 &middot; Colorado
           <span className="inline-block w-10 h-px bg-zinc-300" />
         </div>
 
@@ -99,7 +99,7 @@ export default function Home() {
           style={{ transitionDelay: "200ms" }}
         >
           The media layer of Forge. YouTube, the Skool community, and the Dad
-          Strength App â€” building a $1M/year autonomous business, publicly.
+          Strength App &mdash; building a $1M/year autonomous business, publicly.
         </p>
 
         {/* CTAs */}
@@ -171,7 +171,7 @@ export default function Home() {
             }}
           >
             We build in public.<br />
-            Not for the algorithm â€”<br />
+            Not for the algorithm &mdash;<br />
             <span className="text-zinc-500">for the record.</span>
           </blockquote>
 
@@ -183,7 +183,7 @@ export default function Home() {
             className="reveal text-[11px] text-zinc-600 font-medium tracking-[0.2em] uppercase"
             style={{ transitionDelay: "260ms" }}
           >
-            Forge OS Â· Colorado Â· Est. 2024
+            Forge OS &middot; Colorado &middot; Est. 2024
           </p>
 
         </div>
@@ -222,7 +222,7 @@ export default function Home() {
               className="reveal text-zinc-500 font-light leading-relaxed mb-8 max-w-sm text-[15px]"
               style={{ transitionDelay: "180ms" }}
             >
-              Scripts, code, failures, and financials â€” every week. Long-form
+              Scripts, code, failures, and financials &mdash; every week. Long-form
               transparency for builders who want to see what the build actually
               costs.
             </p>
@@ -243,7 +243,7 @@ export default function Home() {
           >
             <Image
               src="/burning-hero-anvil.png"
-              alt="The Forge â€” forging in public"
+              alt=”The Forge - forging in public”
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -301,7 +301,7 @@ export default function Home() {
               style={{ transitionDelay: "180ms" }}
             >
               A private collective of builders, founders, and fathers sharing
-              the exact tools and templates we use to run Forge. No posturing â€”
+              the exact tools and templates we use to run Forge. No posturing &mdash;
               just the real work.
             </p>
             <a
@@ -351,7 +351,7 @@ export default function Home() {
               style={{ transitionDelay: "180ms" }}
             >
               HQ, Mind, Body, Spirit. Functional strength without the
-              alpha-bro posturing. Built to make you capable â€” at the gym and
+              alpha-bro posturing. Built to make you capable &mdash; at the gym and
               at home.
             </p>
             <a
@@ -435,7 +435,7 @@ export default function Home() {
             style={{ transitionDelay: "160ms" }}
           >
             Access the community, the app, and the full transparency of the
-            build. Everything we know â€” shared.
+            build. Everything we know &mdash; shared.
           </p>
 
           <div
@@ -470,10 +470,10 @@ export default function Home() {
           </span>
         </div>
         <p className="text-[11px] text-zinc-400 font-light">
-          Â© 2026 Forge OS. All rights reserved.
+          &copy; 2026 Forge OS. All rights reserved.
         </p>
         <p className="text-[11px] text-zinc-400 font-medium tracking-widest">
-          Colorado Â· Est. 2024
+          Colorado &middot; Est. 2024
         </p>
       </footer>
 
