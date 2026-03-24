@@ -367,14 +367,15 @@ export default function Home() {
 
           {/* Visual */}
           <div
-            className="reveal relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950"
+            className="reveal relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950 shadow-2xl"
             style={{ transitionDelay: "80ms" }}
           >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-              <span className="text-6xl font-light text-zinc-700 leading-none">Dad</span>
-              <span className="text-6xl font-light text-white leading-none">Strength</span>
-              <div className="mt-5 w-8 h-px bg-orange-500" />
-            </div>
+            <Image
+              src="/dad-strength-screenshot.png"
+              alt="Dad Strength App dashboard"
+              fill
+              className="object-cover object-top"
+            />
           </div>
 
         </div>
