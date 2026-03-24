@@ -49,15 +49,11 @@ export default function Home() {
           </span>
         </div>
         <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-400">
-          <a href="https://www.youtube.com/@forgeOS108" className="hover:text-zinc-900 transition-colors duration-200">
-            YouTube
-          </a>
-          <a href="https://www.skool.com/forge-os-9794" className="hover:text-zinc-900 transition-colors duration-200">
-            Community
-          </a>
-          <a href="https://dad-strength-app-rnz1.vercel.app/dashboard" className="hover:text-zinc-900 transition-colors duration-200">
-            Dad Strength
-          </a>
+          <a href="/about" className="hover:text-zinc-900 transition-colors duration-200">_about</a>
+          <a href="/builds" className="hover:text-zinc-900 transition-colors duration-200">_builds</a>
+          <a href="/blog" className="hover:text-zinc-900 transition-colors duration-200">_blog</a>
+          <a href="https://www.youtube.com/@forgeOS108" className="hover:text-zinc-900 transition-colors duration-200">YouTube</a>
+          <a href="https://www.skool.com/forge-os-9794" className="hover:text-zinc-900 transition-colors duration-200">Community</a>
         </div>
         <a
           href="https://www.skool.com/forge-os-9794"
@@ -84,14 +80,20 @@ export default function Home() {
           className="reveal font-light tracking-tight leading-[0.9] text-zinc-900"
           style={{ fontSize: "clamp(3.25rem, 8.5vw, 8rem)", transitionDelay: "60ms" }}
         >
-          Documenting the
+          Stay small.
         </h1>
         <h1
-          className="reveal font-light tracking-tight leading-[0.9] text-zinc-400 mb-14"
+          className="reveal font-light tracking-tight leading-[0.9] text-zinc-400"
           style={{ fontSize: "clamp(3.25rem, 8.5vw, 8rem)", transitionDelay: "130ms" }}
         >
-          autonomous build.
+          Build deep.
         </h1>
+        <p
+          className="reveal text-sm font-medium tracking-[0.2em] text-zinc-400 uppercase mt-6 mb-14"
+          style={{ transitionDelay: "170ms" }}
+        >
+          Andrew Brough
+        </p>
 
         {/* Sub-copy */}
         <p
