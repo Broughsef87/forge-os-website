@@ -262,16 +262,16 @@ export default function Home() {
 
           {/* Visual — left on desktop */}
           <div
-            className="reveal order-2 md:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-950"
+            className="reveal order-2 md:order-1 relative aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 shadow-2xl"
             style={{ transitionDelay: "80ms" }}
           >
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <span className="text-[6rem] font-light text-zinc-800 leading-none">S</span>
-              <div className="w-6 h-px bg-orange-500" />
-              <span className="text-[11px] tracking-[0.25em] text-zinc-600 uppercase font-medium">
-                The Skool
-              </span>
-            </div>
+            <Image
+              src="/skool-screenshot.png"
+              alt="Skool community"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
 
           {/* Text — right on desktop */}
