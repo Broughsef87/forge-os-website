@@ -34,9 +34,8 @@ export default function About() {
           <span className="font-medium tracking-widest text-[11px] text-zinc-900">FORGE OS</span>
         </a>
         <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-400">
-          <a href="/about" className="text-zinc-900 transition-colors duration-200">_about</a>
-          <a href="/builds" className="hover:text-zinc-900 transition-colors duration-200">_builds</a>
-          <a href="/blog" className="hover:text-zinc-900 transition-colors duration-200">_blog</a>
+          <a href="/about" className="text-zinc-900 transition-colors duration-200">About</a>
+          <a href="/builds" className="hover:text-zinc-900 transition-colors duration-200">Builds</a>
           <a href="https://www.youtube.com/@forgeOS108" className="hover:text-zinc-900 transition-colors duration-200">YouTube</a>
           <a href="https://www.skool.com/forge-os-9794" className="hover:text-zinc-900 transition-colors duration-200">Community</a>
         </div>
